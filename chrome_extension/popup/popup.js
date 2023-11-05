@@ -1,5 +1,8 @@
 const getAudioExplanation = document.getElementById("get-audio-explanation");
+const getTextExplanation = document.getElementById("get-text-explanation"); 
 const explanation = document.getElementById("explanation");
+
+let localStorage = null;
 
 getAudioExplanation.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -13,27 +16,33 @@ getAudioExplanation.addEventListener("click", async (e) => {
     
     // Split the text by lines
     const lines = res[0].split(/\r\n|\r|\n/);
+    localStorage = lines;
     handleAudioFetch(lines.join(".. "));
-    
-    // Clear the explanation div
-    // explanation.innerHTML = "";
 
-    // // Create a new <p> element for each line
-    // lines.forEach((line) => {
-    //   const p = document.createElement("p");
-    //   p.textContent = line;
-    //   explanation.appendChild(p);
-      
-    //   // read line
-    // });    
   } else {
     console.error("Failed to fetch data:", response.status, response.statusText);
   }
 });
 
 
+getTextExplanation.addEventListener("click", async(e) => {
+  e.preventDefault();
+
+  getTextExplanation.setAttribute("aria-busy", "true");
+  explanation.innerHTML = "";
+
+  localStorage.forEach((line) => {
+    const p = document.createElement("p");
+    p.textContent = line;
+    explanation.appendChild(p);
+  });
+
+  getTextExplanation.setAttribute("aria-busy", "false");
+});
+
+
 const textToSpeech = async (inputText) => {
-  const API_KEY = VOICE_AI_API;
+  const API_KEY = OPENAI_API_KEY;
   const VOICE_ID = 'IKne3meq5aSn9XLyUdCD';
 
   const options = {
@@ -90,4 +99,5 @@ const handleAudioFetch = async (textSelected) => {
   explanation.appendChild(audioElement);
 
   getAudioExplanation.setAttribute("aria-busy", "false");
+  getTextExplanation.setAttribute("aria-busy", "false");
 };
