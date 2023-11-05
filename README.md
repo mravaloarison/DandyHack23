@@ -36,11 +36,11 @@ flask run
 ### Chrome set up
 Go to [chrome://extensions/](chrome://extensions/), make sure to activate developer mode:
 
-![Screenshot](./image.jpg)
+![Screenshot](./image_1.png)
 
 Click `Load unpacked` button: 
 
-![Load unpacked Screenshot](./image.jpg)
+![Load unpacked Screenshot](./image_2.png)
 
 Navigate to the `chrome_extension` folfer from the cloned repository
 ```
@@ -49,13 +49,15 @@ DandyHack23 > chrome_extension
 
 Have a better experience by pining the extension:
 
-![Pin extension](./image.jpg)
+![Pin extension](./image_4.png)
 
+### Also
+Do not forget to provide API KEYS for:
+- Openai API 
+> Hackdandy23 > flask > helpers.py (line 5)
 
-
-
-
-
+- 11labs API 
+> Hackdandy23 > popup > popu.js (line 58)
 
 ## Features
 
