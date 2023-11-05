@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PICO -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <style>
+    
+        .popup-container {
+            width: 300px; 
+            height: fit-content;
+            padding: 16px;
+        }
+    
+    </style>
+
+
+<title>My popup</title>
+</head>
+<body>
+    
+    <div class="popup-container">
+        <blockquote>
+            <p>Instant Explanation 🪄</p>
+            <small>Highlight to Learn 🧠</small>
+        </blockquote>
+        <div id="explanation"></div>
+        <button id="get-audio-explanation" class="outline" aria-busy="false">Explain 🗣️</button>
+        <button id="get-text-explanation" class="outline" aria-busy="false">Take notes ✍️</button>
+    </div>
+    
+    <script src="popup.js"></script>
+</body>
+</html>
