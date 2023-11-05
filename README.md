@@ -5,6 +5,58 @@ highlight any word or sentences or code in your browser and learn what about it.
 
 [Demo](https://youtu.be/otI4Q1wfWmc)
 
+# How to use it
+### Server side
+Clone this repository
+```git
+git clone https://github.com/mravaloarison/DandyHack23.git
+```
+Once you open the document named `Dandyhack23` Navigate to your flask file using the command:
+```
+cd flask
+```
+Create a python environment to run the Flask server locally:
+```
+python -m venv your_environment_name
+```
+Next, activate your environment
+```
+source your_environment_name/bin/activate
+```
+Once your environment is activate, install all the dependencies
+```
+pip install -r requirements.txt
+```
+Now, all you need to do is to give setup your openai API KEY, then run the Flask app and the server is ready
+```
+export OPENAI_API_KEY=YOUR_API_KEY
+flask run
+```
+
+### Chrome set up
+Go to [chrome://extensions/](chrome://extensions/), make sure to activate developer mode:
+
+![Screenshot](./image.jpg)
+
+Click `Load unpacked` button: 
+
+![Load unpacked Screenshot](./image.jpg)
+
+Navigate to the `chrome_extension` folfer from the cloned repository
+```
+DandyHack23 > chrome_extension
+```
+
+Have a better experience by pining the extension:
+
+![Pin extension](./image.jpg)
+
+
+
+
+
+
+
 ## Features
 
 - **Text Highlighting:** Easily select and highlight any text on a webpage.

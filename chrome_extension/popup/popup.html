@@ -14,7 +14,14 @@
             height: fit-content;
             padding: 16px;
         }
-    
+
+        #explanation {
+            position: relative;
+            margin: auto;
+            /* padding-right: 180px; */
+            padding-bottom: 30px;
+        }
+
     </style>
 
 
@@ -23,13 +30,13 @@
 <body>
     
     <div class="popup-container">
-        <blockquote>
+        <div class="flex-center">
             <p>Instant Explanation 🪄</p>
-            <small>Highlight to Learn 🧠</small>
-        </blockquote>
+            <p>Highlight to Learn 🧠</p>
+        </div>
         <div id="explanation"></div>
         <button id="get-audio-explanation" class="outline" aria-busy="false">Explain 🗣️</button>
-        <button id="get-text-explanation" class="outline" aria-busy="false">Take notes ✍️</button>
+        <button id="get-text-explanation"  class="outline" aria-busy="false">Take notes ✍️</button>
     </div>
     
     <script src="popup.js"></script>
