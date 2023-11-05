@@ -3,7 +3,7 @@
 Magic Mouse is a chrome extension that allows you to
 highlight any word or sentences or code in your browser and learn what about it.
 
-[Demo](https://youtu.be/geKHatCAhJk)
+[Demo](https://youtu.be/otI4Q1wfWmc)
 
 ## Features
 
