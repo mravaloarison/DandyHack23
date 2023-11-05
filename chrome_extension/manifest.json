@@ -7,7 +7,18 @@
     "activeTab"
   ],
   "action": {
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "32": "images/mouse32.png",
+      "72": "images/mouse72.png",
+      "128": "images/mouse128.png",
+      "512": "images/mouse512.png"
+    }
+  },"icons": {
+    "32": "images/mouse32.png",
+    "72": "images/mouse72.png",
+    "128": "images/mouse128.png",
+    "512": "images/mouse512.png"
   },
   "content_scripts": [
     {

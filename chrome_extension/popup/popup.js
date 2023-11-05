@@ -2,7 +2,7 @@ const getAudioExplanation = document.getElementById("get-audio-explanation");
 const getTextExplanation = document.getElementById("get-text-explanation"); 
 const explanation = document.getElementById("explanation");
 
-let localStorage = null;
+// let localStorage = null;
 
 getAudioExplanation.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -15,12 +15,12 @@ getAudioExplanation.addEventListener("click", async (e) => {
     const res = await req.json();
     
     // Split the text by lines
-    const lines = res[0].split(/\r\n|\r|\n/);
+    const lines = res.split(/\r\n|\r|\n/);
     localStorage = lines;
     handleAudioFetch(lines.join(".. "));
 
   } else {
-    console.error("Failed to fetch data:", response.status, response.statusText);
+    console.error("Failed to fetch data:", req.status, req.statusText);
   }
 });
 
@@ -31,13 +31,26 @@ getTextExplanation.addEventListener("click", async(e) => {
   getTextExplanation.setAttribute("aria-busy", "true");
   explanation.innerHTML = "";
 
-  localStorage.forEach((line) => {
-    const p = document.createElement("p");
-    p.textContent = line;
-    explanation.appendChild(p);
-  });
+  const req = await fetch("http://127.0.0.1:5000/generate_res");
 
-  getTextExplanation.setAttribute("aria-busy", "false");
+  // explanation.innerHTML = await req.json();
+
+  if (req.ok && req.status == 200) {
+    const res = await req.json();
+    
+    // Split the text by lines
+    const lines = res.split(/\r\n|\r|\n/);
+    
+    lines.forEach((line) => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      explanation.appendChild(p);
+    });
+
+    getTextExplanation.setAttribute("aria-busy", "false");
+  } else {
+    console.error("Failed to fetch data:", req.status, req.statusText);
+  }
 });
 
 
